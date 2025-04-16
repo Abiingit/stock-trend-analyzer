@@ -1,20 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { fetchStockQuote, fetchStockTrend } from "./api/stockAPI";
-import StockChart from "./components/stockChart";
+import { fetchStockTrend } from "./api/stockAPI";
+import StockChart from "./components/StockChart";
 
 const STOCKS = ["AAPL", "TSLA", "GOOGL", "MSFT", "AMZN"];
 
 const App = () => {
   const [ticker, setTicker] = useState("AAPL");
-  const [quote, setQuote] = useState(null);
   const [trendData, setTrendData] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const loadStockData = async () => {
     setLoading(true);
-    const quoteData = await fetchStockQuote(ticker);
     const trend = await fetchStockTrend(ticker);
-    setQuote(quoteData);
     setTrendData(trend);
     setLoading(false);
   };
@@ -25,7 +22,7 @@ const App = () => {
 
   return (
     <div style={{ padding: "30px", fontFamily: "Arial", textAlign: "center" }}>
-      <h1>📊 Stock Trend Analyzer</h1>
+      <h1>📊 Stock Trend Analyzer (Alpha Vantage Powered)</h1>
 
       <select
         value={ticker}
@@ -41,20 +38,10 @@ const App = () => {
 
       {loading ? (
         <p>Loading data...</p>
+      ) : trendData.length ? (
+        <StockChart data={trendData} />
       ) : (
-        <>
-          {quote ? (
-            <div style={{ marginBottom: "20px" }}>
-              <h2>{ticker} – ${quote.price}</h2>
-              <p>Yesterday's Close: ${quote.previousClose}</p>
-              <p>📈 Trend: <strong>{quote.trend}</strong></p>
-            </div>
-          ) : (
-            <p>No quote data available.</p>
-          )}
-
-          <StockChart data={trendData} />
-        </>
+        <p>No trend data available. Try another stock.</p>
       )}
     </div>
   );
