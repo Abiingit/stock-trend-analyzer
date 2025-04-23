@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import StockChart from "./components/stockChart";
 import "./App.css";
 import { fetchStockTrend, fetchLiveQuote } from "./api/stockAPI";
-import { predictNextPrice } from "./utils/predictor";
+// import { predictNextPrice } from "./utils/predictor";
+import axios from "axios";
+
 
 
 
@@ -15,22 +17,30 @@ const App = () => {
   const [liveQuote, setLiveQuote] = useState(null);
   const [predictedPrice, setPredictedPrice] = useState(null);
 
-
-  
-
   const loadStockData = async () => {
     setLoading(true);
+    setPredictedPrice(null); // Reset previous prediction
+  
     const trend = await fetchStockTrend(ticker);
     const quote = await fetchLiveQuote(ticker);
+  
     setTrendData(trend);
     setLiveQuote(quote);
+  
+    try {
+      const prices = trend.map((item) => item.price); // Extract price array
+  
+      const response = await axios.post("http://127.0.0.1:5000/predict", {
+        prices: prices,
+      });
+  
+      setPredictedPrice(response.data.predicted_price);
+    } catch (err) {
+      console.error("Prediction fetch failed:", err);
+      setPredictedPrice(null);
+    }
+  
     setLoading(false);
-    //prediction function
-    setTrendData(trend);
-    
-    // 👇 Predict next price
-    const prediction = predictNextPrice(trend);
-    setPredictedPrice(prediction);
   };
   
 
@@ -86,8 +96,8 @@ const App = () => {
     fontWeight: "500"
   }}>
     🔮 <strong>Predicted Price (Tomorrow): ${predictedPrice}</strong>
-  </div>
-)}
+  </div>)}
+
 
     </div>
   );
