@@ -8,7 +8,7 @@ import Chatbot from "./Chatbot";
 
 import "../../App.css"; // if using global styles
 
-const DashboardLayout = ({ ticker, trendData, quote, predictedPrice, news }) => {
+const DashboardLayout = ({ ticker, multiTrendData, quote, predictedPrice, news }) => {
   return (
     <div className="dashboard">
       {/* Left Sidebar */}
@@ -20,7 +20,7 @@ const DashboardLayout = ({ ticker, trendData, quote, predictedPrice, news }) => 
 
       {/* Main Content */}
       <div className="main">
-        <ChartView data={trendData} />
+        <ChartView multiTrendData={multiTrendData} />
         <NewsFeed articles={news} />
         <Chatbot />
       </div>

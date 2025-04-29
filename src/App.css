@@ -3,7 +3,11 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #43505c;
+  /* background-image:url('./assets/background.jpeg'); */
+  background-color: #d1d5db;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   font-family: 'Segoe UI', sans-serif;
   justify-content: center;
   color:#0f172a
@@ -14,7 +18,7 @@ body {
   min-width:1000px;
   margin: 40px auto;
   padding: 30px;
-  background-color: #f7f5f5;
+  background-color: #9e6868;
   border-radius: 10px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
   text-align: center;
@@ -45,14 +49,25 @@ body {
 .dashboard {
   display: flex;
   min-height: 100vh;
-  background-color: #f1f5f9;
+  background: rgba(255, 255, 255, 0.1); /* kinda transparent */
+  border-radius: 16px; /* nice rounded corners */
+  backdrop-filter: blur(10px); /* the actual blur */
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* a soft border */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 .sidebar {
   width: 25%;
-  background-color: #fff;
+  background-color: #a58c8c;
   padding: 20px;
   border-right: 2px solid #e2e8f0;
+  background: rgba(255, 255, 255, 0.1); /* kinda transparent */
+  border-radius: 16px; /* nice rounded corners */
+  backdrop-filter: blur(10px); /* the actual blur */
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* a soft border */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 .main {
@@ -70,4 +85,5 @@ select.dropdown {
   border-radius: 6px;
   border: 1px solid #ddd;
 }
+
 

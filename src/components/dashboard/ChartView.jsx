@@ -12,34 +12,53 @@ import {
 
 ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement, Tooltip, Legend);
 
-const ChartView = ({ data }) => {
-  if (!data || data.length === 0) {
+const colors = [
+  "#3b82f6", // blue
+  "#ef4444", // red
+  "#10b981", // green
+  "#8b5cf6", // purple
+  "#f97316", // orange
+];
+
+const ChartView = ({ multiTrendData }) => {
+    
+  if (!multiTrendData || Object.keys(multiTrendData).length === 0) {
     return <p>Loading chart...</p>;
   }
 
+  const datasets = Object.keys(multiTrendData).map((ticker, idx) => ({
+    label: ticker,
+    data: multiTrendData[ticker].map(point => point.price),
+    borderColor: colors[idx % colors.length],
+    backgroundColor: colors[idx % colors.length],
+    fill: false,
+    tension: 0.4,
+  }));
+
+  const labels = multiTrendData[Object.keys(multiTrendData)[0]].map(point => point.date);
+
   const chartData = {
-    labels: data.map((point) => point.date),
-    datasets: [
-      {
-        label: "Price",
-        data: data.map((point) => point.price),
-        fill: false,
-        borderColor: "#3b82f6",
-        tension: 0.4,
-      },
-    ],
+    labels,
+    datasets,
   };
 
   const options = {
     responsive: true,
     plugins: {
-      legend: { display: true },
+      legend: {
+        display: true,
+      },
     },
   };
 
   return (
-    <div style={{ background: "#fff", padding: "20px", borderRadius: "10px" }}>
-      <h3>📈 Stock Trend (Past 7 Days)</h3>
+    <div style={{
+      background: "rgba(63, 62, 62, 0.1)",
+      padding: "20px",
+      borderRadius: "10px",
+      marginBottom: "20px",
+    }}>
+      <h3>📈 Stock Trend Comparison</h3>
       <Line data={chartData} options={options} />
     </div>
   );

@@ -14,6 +14,7 @@ const App = () => {
   const [predictedPrice, setPredictedPrice] = useState(null);
   const [loading, setLoading] = useState(false);
   const [newsArticles, setNewsArticles] = useState([]);
+  const [multiTrendData, setMultiTrendData] = useState({});
 
 
   const loadStockData = async () => {
@@ -45,12 +46,27 @@ const App = () => {
     setLoading(false);
   };
 
+  const loadMultiTrendData = async () => {
+    let newTrendData = {};
+  
+    for (const stock of STOCKS) {
+      const trend = await fetchStockTrend(stock);
+      newTrendData[stock] = trend;
+    }
+  
+    setMultiTrendData(newTrendData);
+  };
+
   useEffect(() => {
     loadStockData();
+    loadMultiTrendData();
   }, [ticker]);
 
   return (
     <>
+
+    <h1 style={{alignItems:'center'}}>Stock Trend DashBoard</h1>
+    <h3>Select your ticker Symbol</h3>
       <select
         value={ticker}
         onChange={(e) => setTicker(e.target.value)}
@@ -66,7 +82,7 @@ const App = () => {
       {!loading && (
         <DashboardLayout
         ticker={ticker}
-        trendData={trendData}
+        multiTrendData={multiTrendData}
         quote={liveQuote}
         predictedPrice={predictedPrice}
         news={newsArticles}
