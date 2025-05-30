@@ -3,6 +3,7 @@
 A lightweight, machine learning-powered web app that predicts the **next day's stock price** using a 7-day historical dataset and a simple Linear Regression model.
 
 
+
 ## 🚀 Features
 
 * 🔢 Predicts next-day stock price using ML
@@ -13,6 +14,7 @@ A lightweight, machine learning-powered web app that predicts the **next day's s
 * 🧠 Minimalistic ML model – simple yet extendable
 
 
+
 ## 📦 Project Structure
 
 ```
@@ -21,6 +23,7 @@ ml-server/
 ├── predictor.py      # Linear Regression model for predictions
 └── README.md         # You're here!
 ```
+
 
 
 ## ⚙️ How It Works
@@ -45,12 +48,14 @@ Content-Type: application/json
 ```
 
 
+
 ## 📚 Tech Stack
 
 * **Backend**: Python, Flask
 * **Machine Learning**: Scikit-learn (Linear Regression)
 * **Data Source**: Compatible with APIs like [Alpha Vantage](https://www.alphavantage.co) and [Yahoo Finance](https://pypi.org/project/yfinance/)
 * **Frontend**: Plug into any stack (React, React Native, HTML/JS, etc.)
+
 
 ## 🔮 Planned Upgrades
 
@@ -59,6 +64,13 @@ Content-Type: application/json
 * 🧠 Model Enhancements: LSTM, XGBoost, or other advanced techniques
 * ⏳ Multi-day prediction support
 * ✅ Real vs Predicted Price Accuracy Comparison
+
+
+## 📂 Screenshots
+<div style="display:flex;justify-items:space-around" >
+<img style="height:400px;width:200px" src="Screenshot(39).png">
+</div>
+
 
 
 ## 🧪 Running the Project Locally
@@ -79,9 +91,11 @@ Once running, your API will be available at:
 `http://127.0.0.1:5000/predict`
 
 
+
 ## 🤝 Contribute
 
 Pull requests, feedback, and feature ideas are highly encouraged! Let’s make stock prediction smarter and more accessible 🚀
+
 
 
 ## 👤 Author
@@ -89,6 +103,7 @@ Pull requests, feedback, and feature ideas are highly encouraged! Let’s make s
 **Abirami (Abi)**
 🎓 Engineering Student
 💡 Passionate about AI, web development & real-world problem solving
+
 
 
 ## 📜 License
