@@ -1,19 +1,17 @@
 # 📈 Stock Price Predictor (ML-Powered)
 
-A lightweight machine learning web app that predicts the **next day's stock price** using a 7-day historical dataset and a simple Linear Regression model.
+A lightweight, machine learning-powered web app that predicts the **next day's stock price** using a 7-day historical dataset and a simple Linear Regression model.
 
----
 
 ## 🚀 Features
 
 * 🔢 Predicts next-day stock price using ML
 * 📈 Accepts a list of 7 historical stock prices
 * ⚙️ Built with Python, Flask, and scikit-learn
-* 🌐 API-ready – integrate with frontend or fetch live stock data
-* 🔄 CORS enabled for full-stack integration
-* 🧠 Simple & customizable ML model for quick upgrades
+* 🌐 API-ready – easy to integrate with any frontend or live stock data API
+* 🔄 CORS enabled for seamless full-stack use
+* 🧠 Minimalistic ML model – simple yet extendable
 
----
 
 ## 📦 Project Structure
 
@@ -24,11 +22,10 @@ ml-server/
 └── README.md         # You're here!
 ```
 
----
 
 ## ⚙️ How It Works
 
-### Step 1: Send a POST request to `/predict` with 7 stock prices:
+### Step 1: Send a POST request to `/predict` with 7 recent stock prices:
 
 ```json
 POST /predict
@@ -47,59 +44,52 @@ Content-Type: application/json
 }
 ```
 
----
 
 ## 📚 Tech Stack
 
 * **Backend**: Python, Flask
-* **ML Model**: Scikit-learn (Linear Regression)
-* **Data**: Can integrate with APIs like [Alpha Vantage](https://www.alphavantage.co) or [Yahoo Finance](https://pypi.org/project/yfinance/)
-* **Frontend**: Any framework (React Native, HTML/JS, etc.)
+* **Machine Learning**: Scikit-learn (Linear Regression)
+* **Data Source**: Compatible with APIs like [Alpha Vantage](https://www.alphavantage.co) and [Yahoo Finance](https://pypi.org/project/yfinance/)
+* **Frontend**: Plug into any stack (React, React Native, HTML/JS, etc.)
 
----
+## 🔮 Planned Upgrades
 
-## 🔮 Future Upgrades (In Progress 🚧)
+* 📅 Live stock price integration using financial APIs
+* 📉 Visualizations: line charts, historical vs predicted comparison graphs
+* 🧠 Model Enhancements: LSTM, XGBoost, or other advanced techniques
+* ⏳ Multi-day prediction support
+* ✅ Real vs Predicted Price Accuracy Comparison
 
-* 📅 Live stock price integration via APIs
-* 📉 Stock data visualization (charts, graphs)
-* 🧠 Switch to advanced ML models (e.g., LSTM, XGBoost)
-* 💾 Predict for multiple days instead of just one
-* 📊 Compare predictions with actual closing prices
 
----
+## 🧪 Running the Project Locally
 
-## 🧪 Run Locally
-
-### 1. Install dependencies
+### 1. Install required libraries:
 
 ```bash
 pip install flask flask-cors scikit-learn numpy
 ```
 
-### 2. Start the server
+### 2. Start the Flask server:
 
 ```bash
 python app.py
 ```
 
-The API will be running on: `http://127.0.0.1:5000/predict`
+Once running, your API will be available at:
+`http://127.0.0.1:5000/predict`
 
----
 
-## 🤝 Contributions
+## 🤝 Contribute
 
-Pull requests, ideas, and upgrades are welcome! Let’s build a smarter predictor together 🚀
+Pull requests, feedback, and feature ideas are highly encouraged! Let’s make stock prediction smarter and more accessible 🚀
 
----
 
-## 🧠 Author
+## 👤 Author
 
-👩‍💻 Abirami (Abi)
-🧑‍🏫 Engineering Student
-🌐 Passionate about AI, web dev & solving real-world problems
+**Abirami (Abi)**
+🎓 Engineering Student
+💡 Passionate about AI, web development & real-world problem solving
 
----
 
 ## 📜 License
-
-This project is open-source and available under the MIT License.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
