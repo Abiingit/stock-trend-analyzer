@@ -68,7 +68,7 @@ Content-Type: application/json
 
 ## 📂 Screenshots
 <div style="display:flex;justify-items:space-around" >
-<img style="height:400px;width:200px" src="Screenshot(39).png">
+<img style="height:400px;width:200px" src="Screenshot (39).png">
 </div>
 
 
