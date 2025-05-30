@@ -6,16 +6,12 @@ const NewsFeed = ({ articles }) => {
   }
 
   return (
-    <div style={{
-      background: "#fef9c3",
-      padding: "20px",
-      borderRadius: "10px"
-    }}>
+    <div className="snapshotcard">
       <h3>📰 Latest News</h3>
       <ul style={{ listStyle: "none", padding: 0 }}>
         {articles.map((article, index) => (
           <li key={index} style={{ marginBottom: "10px" }}>
-            <a href={article.link} target="_blank" rel="noopener noreferrer">
+            <a href={article.link} target="_blank" rel="noopener noreferrer" style={{color:"grey"}}>
               🔗 {article.title}
             </a>
             <br />

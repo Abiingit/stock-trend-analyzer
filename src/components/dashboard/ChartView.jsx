@@ -53,7 +53,7 @@ const ChartView = ({ multiTrendData }) => {
 
   return (
     <div style={{
-      background: "rgba(63, 62, 62, 0.1)",
+      background: "rgba(238, 228, 228, 0.2)",
       padding: "20px",
       borderRadius: "10px",
       marginBottom: "20px",
